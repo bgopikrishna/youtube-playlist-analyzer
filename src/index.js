@@ -1,6 +1,5 @@
 import { getPlaylistData, getVideosListWithReqDetails } from "./utils";
 import Chart from "chart.js";
-import "./styles.css";
 
 const form = document.querySelector("#form");
 const input = document.querySelector("#playlisturl");
@@ -24,8 +23,17 @@ async function handleForm(e) {
 }
 
 function createBarChartFromData(videos) {
-    const chartEl = document.querySelector("#graph").getContext("2d");
+    let chartEl = document.querySelector("canvas");
 
+    if ("$chartjs" in chartEl) {
+        chartEl.remove();
+        const canvas = document.createElement("canvas");
+        document.querySelector("#app").appendChild(canvas);
+
+        chartEl = document.querySelector("canvas");
+    }
+
+    let chartCtx = chartEl.getContext("2d");
     const durationList = videos.map(video => video.duration / 60000);
     const titleList = videos.map(video => video.title);
 
@@ -67,5 +75,5 @@ function createBarChartFromData(videos) {
     };
 
     // eslint-disable-next-line no-unused-vars
-    let chart = new Chart(chartEl, options);
+    let chart = new Chart(chartCtx, options);
 }

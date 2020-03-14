@@ -1,23 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Youtube Playlist Analyzer</title>
-    <meta charset="utf-8">
-  <link rel="stylesheet" href="/src.e31bb0bc.css"></head>
-  <body>
-    <div id="app">
-      <form id="form">
-        <input type="text" name="playlisturl" id="playlisturl" required="">
-        <button type="submit">Submit</button>
-      </form>
+    <head>
+        <title>Youtube Playlist Analyzer</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/styles.8986bff4.css">
+    <script src="/styles.8986bff4.js"></script></head>
+    <body>
+        <div id="app">
+            <div class="navbar">
+                <header class="navbar__logo">
+                    <h1>
+                        <a href="/">Youtube Playlist analyzer</a>
+                    </h1>
+                </header>
+            </div>
+            <form id="form">
+                <!-- <div class="form-input">
+                    <label for="playlisturl">
+                        Enter the playlist url (max length : 50)
+                    </label>
+                    <input
+                        type="text"
+                        name="playlisturl"
+                        id="playlisturl"
+                        required
+                    />
+                </div> -->
+                <label for="playlisturl" class="form__label">
+                    Enter the playlist url (max length : 50)</label>
+                <input type="text" class="form__field" placeholder="Enter Playlist URL" name="playlisturl" id="playlisturl" required="">
+                <button type="submit">Submit</button>
+            </form>
+            <!-- <details>
+                <summary>Current Limitations</summary>
+                Currently the data will be displayed only for first 50 videos of
+                the playlist
+            </details> -->
 
-      <canvas id="graph"></canvas>
-    </div>
-    <button id="clear-cached-btn">Clear Cached Data</button>
-    <script src="/src.e31bb0bc.js"></script>
-    <script>var clearCacheBtn = document.querySelector('#clear-cached-btn');
-clearCacheBtn.addEventListener('click', function () {
-  localStorage.clear();
+            <canvas id="graph"></canvas>
+        </div>
+        <button id="clear-cached-btn">Clear Cached Data</button>
+        <script src="/src.e31bb0bc.js"></script>
+        <script>var clearCacheBtn = document.querySelector("#clear-cached-btn");
+clearCacheBtn.addEventListener("click", function () {
+  // localStorage.clear();
+  var prevText = clearCacheBtn.innerHTML;
+  clearCacheBtn.classList.add("success");
+  clearCacheBtn.innerHTML = "Cache Cleared :)";
+  setTimeout(function () {
+    clearCacheBtn.innerHTML = prevText;
+    clearCacheBtn.classList.remove("success");
+  }, 3000);
 });</script>
-  </body>
+    </body>
 </html>

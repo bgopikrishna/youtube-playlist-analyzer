@@ -1,4 +1,95 @@
-h1 {
-  color: white;
-  background-color: black;
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap");
+
+body {
+    padding: 0%;
+    margin: 0%;
+    font-family: "Cairo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 18px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#app {
+    max-width: 80%;
+    margin: 1rem auto;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding: 0 1rem;
+    color: #1e90ff;
+}
+
+.navbar__logo h1 {
+    margin: 0%;
+}
+
+#clear-cached-btn {
+    position: fixed;
+    right: 0.5rem;
+    top: 0.5rem;
+    border: none;
+    background: #f44336;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+#clear-cached-btn.success {
+    background: #0a923e;
+}
+
+/* Base styles */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+label {
+    font-size: 12px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+form input,
+form button {
+    padding: 8px;
+    width: 100%;
+    margin: 8px auto;
+}
+
+canvas {
+    margin: auto;
+}
+
+@media (max-width: 900px) {
+    #app {
+        max-width: 95%;
+    }
+
+    #clear-cached-btn {
+        top: auto;
+        bottom: 0.5rem;
+    }
 }
