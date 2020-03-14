@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Empty project</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <div id="app"></div>
-        <script src="index.js"></script>
-    </body>
+  <head>
+    <title>Youtube Playlist Analyzer</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div id="app">
+      <form id="form">
+        <input type="text" name="playlisturl" id="playlisturl" required />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <button id="clear-cached-btn">Clear Cached Data</button>
+    <script src="index.js"></script>
+    <script>
+      const clearCacheBtn = document.querySelector('#clear-cached-btn');
+      clearCacheBtn.addEventListener('click', () => {
+        localStorage.clear();
+      });
+    </script>
+  </body>
 </html>
