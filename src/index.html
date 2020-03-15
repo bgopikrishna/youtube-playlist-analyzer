@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Youtube Playlist Analyzer</title>
-        <meta charset="utf-8" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Youtube Playlist analyzer</title>
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
@@ -16,34 +17,36 @@
             </div>
             <form id="form">
                 <!-- <div class="form-input">
-                    <label for="playlisturl">
-                        Enter the playlist url (max length : 50)
-                    </label>
-                    <input
-                        type="text"
-                        name="playlisturl"
-                        id="playlisturl"
-                        required
-                    />
-                </div> -->
-                <label for="playlisturl" class="form__label">
-                    Enter the playlist url (max length : 50)</label
-                >
+                <label for="playlisturl">
+                    Enter the playlist url (max length : 50)
+                </label>
                 <input
                     type="text"
-                    class="form__field"
-                    placeholder="Enter Playlist URL"
                     name="playlisturl"
                     id="playlisturl"
                     required
                 />
-                <button type="submit">Submit</button>
+            </div> -->
+                <label for="playlisturl" class="form__label">
+                    Enter the playlist url (max length : 50)</label
+                >
+                <div class="d-flex">
+                    <input
+                        type="text"
+                        class="form__field"
+                        placeholder="Enter Playlist URL"
+                        name="playlisturl"
+                        id="playlisturl"
+                        required
+                    />
+                    <button type="submit">Submit</button>
+                </div>
             </form>
             <!-- <details>
-                <summary>Current Limitations</summary>
-                Currently the data will be displayed only for first 50 videos of
-                the playlist
-            </details> -->
+            <summary>Current Limitations</summary>
+            Currently the data will be displayed only for first 50 videos of
+            the playlist
+        </details> -->
 
             <canvas id="graph"></canvas>
         </div>

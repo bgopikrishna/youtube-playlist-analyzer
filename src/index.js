@@ -60,8 +60,8 @@ function createBarChartFromData(videos) {
                     backgroundColor: "dodgerblue",
                     borderWidth: 1,
                     borderColor: "#777",
-                    hoverBorderWidth: 3,
-                    hoverBorderColor: "#000"
+                    hoverBorderWidth: 1,
+                    hoverBorderColor: "green"
                 }
             ]
         },
@@ -69,7 +69,17 @@ function createBarChartFromData(videos) {
             title: {
                 display: true,
                 text: `Total Duration: ${totalDurationInHHMM}`,
-                fontSize: 25
+                fontSize: 14
+            },
+            scales: {
+                xAxes: [
+                    {
+                        ticks: {
+                            display: false,
+                            beginAtZero: true
+                        }
+                    }
+                ]
             }
         }
     };
