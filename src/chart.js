@@ -8,17 +8,18 @@ export function createBarChartFromData(videos) {
         document.querySelector("#app").appendChild(canvas);
         chartEl = document.querySelector("canvas");
     }
+
     let chartCtx = chartEl.getContext("2d");
     const durationList = videos.map(video => video.duration / 60000);
     const titleList = videos.map(video => video.title);
     const totalMinutes = durationList.reduce((acc, total) => acc + total);
-    const totalDurationInHHMM =
-        Math.floor(totalMinutes / 60) +
-        " Hour(s), " +
-        (totalMinutes % 60).toFixed(2) +
-        " Minute(s)";
-    console.log(`total minutes`, totalMinutes);
-    console.log("titles", titleList, durationList);
+    const totalDurationInHHMM = calucateDurationAtRates(totalMinutes);
+
+    const totatDurationAt125x = calucateDurationAtRates(totalMinutes, 1.25);
+    const totatDurationAt150x = calucateDurationAtRates(totalMinutes, 1.5);
+    const totatDurationAt175x = calucateDurationAtRates(totalMinutes, 1.75);
+    const totatDurationAt200x = calucateDurationAtRates(totalMinutes, 2.0);
+
     const options = {
         type: "bar",
         data: {
@@ -49,10 +50,33 @@ export function createBarChartFromData(videos) {
                             beginAtZero: true
                         }
                     }
+                ],
+                yAxes: [
+                    {
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }
                 ]
             }
         }
     };
     // eslint-disable-next-line no-unused-vars
     let chart = new Chart(chartCtx, options);
+
+    document.querySelector("#rate").innerHTML = `<ul>
+    <li>Total duration at 1.25x speed : ${totatDurationAt125x}</li>
+    <li>Total duration at 1.50x speed : ${totatDurationAt150x}</li>
+    <li>Total duration at 1.75x speed : ${totatDurationAt175x}</li>
+    <li>Total duration at 2.00x speed : ${totatDurationAt200x}</li>
+    </ul>`;
+}
+
+function calucateDurationAtRates(minutes, rate = 1) {
+    return (
+        Math.floor(minutes / 60 / rate) +
+        " Hour(s), " +
+        Math.round((minutes % 60) / rate) +
+        " Minute(s)"
+    );
 }
