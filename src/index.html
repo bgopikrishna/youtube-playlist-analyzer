@@ -6,30 +6,20 @@
         <title>Youtube Playlist analyzer</title>
         <link rel="stylesheet" href="styles.css" />
     </head>
+
     <body>
-        <div id="app">
+        <div id="app" class="app">
             <div class="navbar">
                 <header class="navbar__logo">
-                    <h1>
+                    <h2>
                         <a href="/">Youtube Playlist analyzer</a>
-                    </h1>
+                    </h2>
                 </header>
             </div>
             <form id="form" autocomplete="on">
-                <!-- <div class="form-input">
-                <label for="playlisturl">
-                    Enter the playlist url (max length : 50)
-                </label>
-                <input
-                    type="text"
-                    name="playlisturl"
-                    id="playlisturl"
-                    required
-                />
-            </div> -->
                 <label for="playlisturl" class="form__label">
-                    Enter the playlist url (max length : 50)</label
-                >
+                    Enter the playlist url (max videos: 50)
+                </label>
                 <div class="d-flex">
                     <input
                         type="search"
@@ -43,30 +33,46 @@
                 </div>
             </form>
 
-            <div class="" id="rate"></div>
-            <!-- <details>
-            <summary>Current Limitations</summary>
-            Currently the data will be displayed only for first 50 videos of
-            the playlist
-        </details> -->
+            <div id="rate"></div>
 
             <canvas id="graph"></canvas>
         </div>
-        <button id="clear-cached-btn">Clear Cached Data</button>
+
+        <!-- <details>
+        <summary>Current Limitations</summary>
+        Currently the data will be displayed only for first 50 videos of
+        the playlist
+    </details> -->
+        <button class="clear-cached-btn">Clear Cached Data</button>
+        <footer class="footer">
+            © 2020 Coded By
+            <a
+                href="https://github.com/bgopikrishna"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Gopi Krishna</a
+            >
+            |
+            <a
+                href="https://github.com/bgopikrishna/youtube-playlist-analyzer"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Github</a>
+        </footer>
         <script src="index.js"></script>
         <script>
-            const clearCacheBtn = document.querySelector("#clear-cached-btn");
-            clearCacheBtn.addEventListener("click", () => {
+            const clearCacheBtn = document.querySelector('#clear-cached-btn')
+            clearCacheBtn.addEventListener('click', () => {
                 // localStorage.clear();
-                const prevText = clearCacheBtn.innerHTML;
-                clearCacheBtn.classList.add("success");
-                clearCacheBtn.innerHTML = "Cache Cleared :)";
+                const prevText = clearCacheBtn.innerHTML
+                clearCacheBtn.classList.add('success')
+                clearCacheBtn.innerHTML = 'Cache Cleared :)'
 
                 setTimeout(() => {
-                    clearCacheBtn.innerHTML = prevText;
-                    clearCacheBtn.classList.remove("success");
-                }, 3000);
-            });
+                    clearCacheBtn.innerHTML = prevText
+                    clearCacheBtn.classList.remove('success')
+                }, 3000)
+            })
         </script>
     </body>
 </html>

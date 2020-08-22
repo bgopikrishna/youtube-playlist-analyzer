@@ -1,64 +1,16 @@
 body {
     padding: 0%;
     margin: 0%;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
 }
 
 * {
     box-sizing: border-box;
 }
-
-#app {
-    max-width: 80%;
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    margin: auto;
-}
-.navbar {
-    display: flex;
-    flex-direction: row;
-    background: #fff;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    padding: 0 1rem;
-    color: #1e90ff;
-}
-
-.navbar__logo h1 {
-    margin: 0%;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-}
-
-#clear-cached-btn {
-    position: fixed;
-    right: 0.5rem;
-    top: 0.5rem;
-    border: none;
-    background: #f44336;
-    color: white;
-    padding: 8px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    border-radius: 5px;
-}
-
-#clear-cached-btn.success {
-    background: #0a923e;
-}
-
-/* Base styles */
+/* Base styles - start */
 
 a {
-    text-decoration: none;
     color: inherit;
 }
 
@@ -102,9 +54,56 @@ li {
     margin: 0.5rem auto;
 }
 
-.d-flex {
+/* Base styles - start */
+
+
+.app {
+    max-width: 80%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    padding: 1rem;
+}
+.navbar {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding: 0 1rem;
+}
+
+.navbar__logo h1 {
+    margin: 0%;
+    margin-bottom: 1rem;
+}
+
+.clear-cached-btn {
+    position: fixed;
+    right: 0.5rem;
+    top: 0.5rem;
+    border: none;
+    background: #f44336;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.75rem;
+    border-radius: 5px;
+}
+
+.clear-cached-btn.success {
+    background: #0a923e;
+}
+.footer {
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 0.5rem;
 }
 
 @media (max-width: 900px) {
@@ -112,8 +111,11 @@ li {
         max-width: 95%;
     }
 
-    #clear-cached-btn {
+    .clear-cached-btn {
         top: auto;
         bottom: 0.5rem;
+    }
+    form button {
+        max-width: 100%;
     }
 }
